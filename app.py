@@ -30,6 +30,6 @@ def download_set(seturl):
     setid = g.grabSet('tmp/')
     shutil.make_archive(STATIC_PATH + '/archives/' + setid, 'zip',
             'tmp/' + setid + '/')
-    return SITE_PREFIX + STATIC_URL + 'archives/' + setid + '.zip')
+    return SITE_PREFIX + STATIC_URL + 'archives/' + setid + '.zip'
 
 app.run(port=8000, debug=True)
