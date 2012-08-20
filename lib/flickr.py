@@ -27,7 +27,7 @@ class Grabber:
                 link_href = link_element['href']
                 image_list.append(link_href)
 
-        call(['wget', '--directory-prefix=' + target_dir + self.setid + '/'] + image_list)
+        call(['wget','-c', '--directory-prefix=' + target_dir + self.setid + '/'] + image_list)
         return self.setid
 
 if __name__ == '__main__':

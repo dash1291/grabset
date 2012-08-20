@@ -2,6 +2,11 @@ body {
 	background-color: #ccc;
 }
 
+a {
+	text-decoration: none;
+	color: #0C83AB;
+}
+
 header {
 	text-align: center;
 	font-family: 'McLaren', serif;
@@ -11,10 +16,6 @@ header {
 
 #reporter {
 	margin-bottom: 1.5em;
-}
-
-.error {
-	color: red;
 }
 
 #download-form {
