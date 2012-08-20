@@ -1,16 +1,21 @@
 import os.path
+import shutil
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
 
-from flask import Flask
+# Configs #
+APP_DIR = os.path.dirname(__file__)
+sys.path.append(os.path.join(APP_DIR, 'lib'))
+TEMPLATES_PATH = os.path.join(APP_DIR, 'templates')
+SITE_PREFIX = 'http://localhost:8000'
+STATIC_URL = '/static/'
+STATIC_PATH = os.path.join(APP_DIR, 'static')
+
+from flask import Flask, request, redirect
 from jinja2 import Template, Environment, FileSystemLoader
-import flickr
+from flickr import Grabber
 
 app = Flask(__name__)
-
-templates_path = os.path.join(os.path.dirname(__file__), 'templates')
-STATIC = '/static/'
-env = Environment(loader=FileSystemLoader(templates_path))
+env = Environment(loader=FileSystemLoader(TEMPLATES_PATH))
 
 @app.route('/')
 def index():
@@ -19,8 +24,12 @@ def index():
     rendered = template.render(ctx)
     return rendered
 
-@app.route('/download')
-def download_set():
-    return 'here is your download link'
+@app.route('/download/<path:seturl>')
+def download_set(seturl):
+    g = Grabber(seturl)
+    setid = g.grabSet('tmp/')
+    shutil.make_archive(STATIC_PATH + '/archives/' + setid, 'zip',
+            'tmp/' + setid + '/')
+    return redirect(SITE_PREFIX + STATIC_URL + 'archives/' + setid + '.zip')
 
-app.run(port=8000)
+app.run(port=8000, debug=True)
