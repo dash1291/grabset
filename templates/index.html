@@ -4,15 +4,19 @@
 		<title>Getset - Flickr Downloading</title>
 	</head>
 		<link rel="stylesheet" href="{{ STATIC }}css/app.css"/>
+		<link href='http://fonts.googleapis.com/css?family=McLaren' rel='stylesheet' type='text/css'>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script src="{{ STATIC }}js/app.js"></script>
 	</head>
 
 	<body>
-		<header>Download your favorite public Flickr sets here.</header>
-		<div id="download-form">
-			<span>Flickr set URL</span>
-			<input type="text" size="50"/>
-			<button id="btn-download">Download</button>
+		<div id="content">
+			<header>Download your favorite public Flickr sets here.</header>
+			<div id="download-form">
+				<span id="url-label">Put in the Flickr set address<br/><small>(Like, http://www.flickr.com/photos/someone/sets/somesetnumber)</small></span><br/>
+				<input id="url-field" type="text" size="80"/><br/>
+				<a href="#" id="btn-download">Download</a>
+			</div>
 		</div>
 	</body>
 
