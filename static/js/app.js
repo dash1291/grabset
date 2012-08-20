@@ -1,5 +1,6 @@
 $( document ).ready( function() {
 	var urlValidated = false;
+	var sitePrefix = $( '#site-prefix' ).val();
   $( '#reporter' ).hide();	
 	$( '#url-field' ).on( 'blur', function() {
 		var p = 'flickr.com/photos/[^/]+/sets/[^/]+';
@@ -29,7 +30,7 @@ $( document ).ready( function() {
 			}
 			animateWaiting();
 
-			$.get( '/download/' + url, function( data ) {
+			$.get( sitePrefix + '/download/' + url, function( data ) {
 				var success = '<span>Here\'s the link</span><br/>' +
 					'<a href="' + data + '">' + data + '</a>';
 				$( '#reporter' ).html( success );

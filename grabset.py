@@ -20,7 +20,7 @@ env = Environment(loader=FileSystemLoader(TEMPLATES_PATH))
 @app.route('/')
 def index():
     template = env.get_template('index.html')
-    ctx = {'STATIC': STATIC_URL}
+    ctx = {'STATIC': STATIC_URL, 'SITE_PREFIX': SITE_PREFIX}
     rendered = template.render(ctx)
     return rendered
 

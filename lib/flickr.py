@@ -8,7 +8,7 @@ from BeautifulSoup import BeautifulSoup as bs
 
 class Grabber:
     def __init__(self, setUrl):
-        url_re = 'http://www.flickr.com/photos/(?P<ns>[^/]+)/sets/(?P<set>[^/]+)/'
+        url_re = 'flickr.com/photos/(?P<ns>[^/]+)/sets/(?P<set>[^/]+)/'
         re_search = re.search(url_re, setUrl)
         self.nsid = re_search.group('ns')
         self.setid = re_search.group('set')

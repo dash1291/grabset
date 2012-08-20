@@ -3,14 +3,15 @@
 	<head>
 		<title>Grabset - Flickr Downloading</title>
 	</head>
-		<link rel="stylesheet" href="{{ STATIC }}css/app.css"/>
+		<link rel="stylesheet" href="{{ SITE_PREFIX }}{{ STATIC }}css/app.css"/>
 		<link href='http://fonts.googleapis.com/css?family=McLaren' rel='stylesheet' type='text/css'>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script src="{{ STATIC }}js/app.js"></script>
+		<script src="{{ SITE_PREFIX }}{{ STATIC }}js/app.js"></script>
 	</head>
 
 	<body>
 		<div id="content">
+			<input type="hidden" id="site-prefix" value="{{ SITE_PREFIX }}"/>
 			<header>Download your favorite public Flickr sets here.</header>
 			<div id="download-form">
 				<span id="url-label">Put in the Flickr set address<br/><small>(Like, http://www.flickr.com/photos/someone/sets/somesetnumber)</small></span><br/>
